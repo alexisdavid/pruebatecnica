@@ -23,10 +23,11 @@ function MyVerticallyCenteredModal(props) {
                 contenido:post.contenido
             }
             console.log("🚀 ~ handleImageUpload ~ data:", data)
-        //   const response = await request.post('posts/savePost', data)
-        //   if (response.statusCode === 200) {
-        //     alert('Guardado con exito')
-        //   }
+
+          const response = await request.post('posts/savePost', data)
+          if (response.statusCode === 200) {
+            alert('Guardado con exito')
+          }
         }
       };
 
@@ -68,19 +69,19 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-export const ModalComponent = () => {
+export const ModalComponent = ({isLogued}) => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
     <div className="mt-3">
       <div className="d-flex justify-content-end">
-        <Button
+        {isLogued&&<Button
           variant="info"
           className="text-white"
           onClick={() => setModalShow(true)}
         >
           Crear post
-        </Button>
+        </Button>}
       </div>
 
       <MyVerticallyCenteredModal

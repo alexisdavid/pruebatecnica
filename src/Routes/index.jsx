@@ -22,6 +22,7 @@ const RoutesModule = () => (
     <BrowserRouter basename={path}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/feed" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<PrivateRoute />} exact>
               {routes.map((route, idx) => (  <Route key={idx} path={route.path} exact element={route.element} />  ))}

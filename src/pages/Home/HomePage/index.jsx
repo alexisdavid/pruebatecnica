@@ -7,6 +7,9 @@ import {  PaginationComponet } from "../../../Components/Pagination";
 import { SearchBar } from "../../../Components/SearchBar";
 import { ArticleDetails } from "../ArticleDetails";
 import { ModalComponent } from "../../../Components/ModalComponent/ModalComponent";
+import { useAppContext } from "../../../Context/AppContext";
+import Request from '../../../utils/http'
+const request = new Request();
 
 let blogPosts = [
   {
@@ -123,12 +126,28 @@ let blogPosts = [
 
 export const HomePage = () => {
 
+  const {user} = useAppContext()
   const [dataPosts,setDataPosts] = useState([])
   const [showDetails,setShowDetails] = useState(false)  
-  const [dataPostsDetails,setDataPostsDetails] = useState(null)    
+  const [dataPostsDetails,setDataPostsDetails] = useState(null)  
+  const [isLogued,setIsLogued]=useState(false)
+  const [userData,setUserData]=useState(null)  
   useEffect(()=>{
-      setDataPosts(blogPosts)
-  },[])
+    if (user!='tengo estado') {
+        
+        setUserData(user)
+        setIsLogued(true)
+      }
+      getData()
+  },[user])
+ const getData=async() => {
+  const response = await request.get('posts/getPost')
+ if (response && response.statusCode === 200) {
+  setDataPosts(response.result.data)
+  
+ }
+ }
+
 
   const handleDetails = (positionPost) =>{
     
@@ -145,14 +164,14 @@ export const HomePage = () => {
   return (
     <Layout>
         { !showDetails ? 
-        <ListPosts {...{dataPosts,handleDetails,clearResults,setDataPosts,blogPosts}} />
+        <ListPosts {...{dataPosts,handleDetails,clearResults,setDataPosts,blogPosts,isLogued}} />
           :
         <ArticleDetails {...{dataPostsDetails,handleBack}} />}
     </Layout>
   );
 };
 
-const ListPosts=({dataPosts,handleDetails,clearResults,setDataPosts})=>{
+const ListPosts=({dataPosts,handleDetails,clearResults,setDataPosts,isLogued})=>{
 
   const handleSearch=(text)=>{
     if(text.length < 3 )
@@ -195,7 +214,7 @@ const ListPosts=({dataPosts,handleDetails,clearResults,setDataPosts})=>{
           
         </Col>
         <Col xs={3}>
-          <ModalComponent />
+          <ModalComponent isLogued={isLogued}/>
         </Col>
         
       </Row>

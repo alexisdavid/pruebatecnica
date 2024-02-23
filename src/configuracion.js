@@ -3,7 +3,7 @@
 // **testing
 // **productionapi
 // "homepage": "URL DE LA PAGINA", //poner un package.json
-export const productionMode = 'productionapi';
+export const productionMode = 'development';
 
 let pathApiBase
 let pathImages
@@ -12,8 +12,8 @@ let pathLogOutBase
 
 switch (productionMode) {
     case 'development':
-        pathApiBase ="http://127.0.0.1:8000/api/";
-        pathImages ="http://127.0.0.1:8000/";
+        pathApiBase ="http://127.0.0.1:8080/api/";
+        pathImages ="http://127.0.0.1:8080/";
         // pathImages = 'https://URL_DEL_BACK/';
         pathBase = ''
         pathLogOutBase = '/'

@@ -14,14 +14,17 @@ const baseUrl =pathApi;
 
 function getToken() {
 
-    const tkn = sessionStorage.getItem('authToken');
-   
-    return tkn ? decryptString(tkn) : '';
+    let tkn = sessionStorage.getItem('token');
+    if (tkn!= null) {
+        tkn = decryptString(JSON.parse(tkn))
+        tkn = JSON.parse(tkn)
+      return tkn!= null ? tkn.token : '';
+    }
+    return ''
 }
 
 function makeRequest(method, url, data) {
     const token = getToken();
-
     return request(method, baseUrl + url)
         .send(data)
         .set({'Accept': 'application/json', 'Authorization': 'Bearer ' + token})
