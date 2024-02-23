@@ -1,12 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from "react-bootstrap/Button";
-export const SearchBar = ({handleClick}) => {
+export const SearchBar = ({handleSearch}) => {
+
   return (
     <div>
-        <input type="text" className="form-control" />
-        <Button variant={'primary'} onClick={handleClick}>
-       Buscar
-        </Button>
+        <input type="text" placeholder='Escribe para buscar...' className="form-control" onChange={e=>handleSearch(e.target.value)} />
     </div>
   )
 }

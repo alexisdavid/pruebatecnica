@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
   faStar,
-  faStarHalfStroke,
 } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
@@ -20,7 +19,7 @@ export const CardComponent = ({
   variantButton = "primary",
   textButton = "Go somewhere",
   subtext = "",
-  children,
+  position=0,
   score=0,
   handleClick = () => {},
 }) => {
@@ -37,7 +36,7 @@ export const CardComponent = ({
         </Col>
         <Col md={8}>
           <Card.Body>
-            <div className="d-flex">
+            <div className="d-flex justify-content-between">
               <Card.Title>{title}</Card.Title>
               <small className="mt-2 ml-3 text-danger">{subtext}</small>
             </div>
@@ -45,7 +44,8 @@ export const CardComponent = ({
             <Card.Text>{text}</Card.Text>
             <div className="d-flex justify-content-between">
               {showButton && (
-                <Button variant={variantButton} onClick={handleClick}>
+                
+                <Button variant={variantButton} onClick={e=>handleClick(position)}>
                   {textButton}
                 </Button>
               )}
