@@ -20,14 +20,15 @@ cd myblog
 #Instala las dependencias del proyecto usando npm:
 npm install
 ```
+
 ```bash
 #Esto iniciará el servidor de desarrollo de Vite y abrirá la aplicación en tu navegador predeterminado. La aplicación se recargará automáticamente cuando realices cambios en el código fuente.
 npm run dev
 ```
 
+## Estructura de Archivos
 ```bash
 
-#Estructura de Archivos
 #Descripción de la estructura de archivos del proyecto:
 
 /src: Contiene el código fuente de la aplicación.
@@ -35,7 +36,7 @@ npm run dev
 /dist: Directorio de salida donde se generan los archivos compilados.
 ```
 
-Dependencias
+## Dependencias
 Aquí están las dependencias utilizadas en el proyecto:
 ```bash
 
@@ -49,10 +50,10 @@ react-bootstrap: ^2.10.1
 react-dom: ^18.2.0
 react-router-dom: ^6.22.1
 superagent: ^8.1.2
+#Estas dependencias son necesarias para la ejecución y funcionamiento del proyecto. Asegúrate de tenerlas instaladas correctamente antes de ejecutar la aplicación.
 ```
 
-Estas dependencias son necesarias para la ejecución y funcionamiento del proyecto. Asegúrate de tenerlas instaladas correctamente antes de ejecutar la aplicación.
-Licencia
+## Licencia
 Este proyecto está bajo la Licencia MIT.
 
 para el proyecto laravel:
