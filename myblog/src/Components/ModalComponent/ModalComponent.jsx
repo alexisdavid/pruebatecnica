@@ -22,11 +22,17 @@ function MyVerticallyCenteredModal(props) {
                 autor:post.autor,
                 contenido:post.contenido
             }
-            console.log("🚀 ~ handleImageUpload ~ data:", data)
+           
 
           const response = await request.post('posts/savePost', data)
           if (response.statusCode === 200) {
             alert('Guardado con exito')
+            setPost({
+              titulo:'',
+              autor:'',
+              contenido:''
+          })
+          setImage(null)
           }
         }
       };
@@ -75,13 +81,13 @@ export const ModalComponent = ({isLogued}) => {
   return (
     <div className="mt-3">
       <div className="d-flex justify-content-end">
-        {isLogued&&<Button
+        {isLogued?<Button
           variant="info"
           className="text-white"
           onClick={() => setModalShow(true)}
         >
           Crear post
-        </Button>}
+        </Button>:<h6>Para crear un post debes iniciar sesion</h6>}
       </div>
 
       <MyVerticallyCenteredModal

@@ -31,7 +31,7 @@ export const CardComponent = ({
             src={img}
             alt="imagen cover"
             className="shadow"
-            style={{ height: "50%" }}
+            style={{ height: '100px' ,width:'200px'}}
           />
         </Col>
         <Col md={8}>

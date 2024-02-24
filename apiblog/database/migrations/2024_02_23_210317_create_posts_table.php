@@ -21,7 +21,6 @@ class CreatePostsTable extends Migration
             $table->date('releasedDate');
             $table->text('coverPick');
             $table->text('content');
-            $table->integer('score');
             $table->timestamps();
 
             // Foreign key constraints

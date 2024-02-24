@@ -18,7 +18,7 @@ export const NavBar = ({userData,logued=false}) => {
     <Navbar bg="primary" data-bs-theme="dark">
        
       <Container>
-        <Navbar.Brand href="#home">{`Bienvenido ${userData?.UserName}`}</Navbar.Brand>
+        <Navbar.Brand href="#home">{`Bienvenido ${logued?userData?.UserName:''}`}</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>

@@ -12,8 +12,6 @@ git clone <https://github.com/alexisdavid/pruebatecnica.git>
 # Navega al directorio del proyecto
 cd pruebatecnica
 
-cd myblog
-
 
 #Instala las dependencias del proyecto usando npm:
 npm install
@@ -50,31 +48,5 @@ Estas dependencias son necesarias para la ejecución y funcionamiento del proyec
 Licencia
 Este proyecto está bajo la Licencia MIT - ve el archivo LICENSE para más detalles.
 
-para el proyecto laravel:
 
 
-```bash
-# Navega al directorio del proyecto
-cd pruebatecnica
-
-cd apiblog
-
-#Instala las dependencias del proyecto usando composer:
-composer install
-
-# Copia el archivo .env.example y renómbralo como .env:
-
-cp .env.example .env
-
-# Genera una nueva clave de aplicación:
-
-php artisan key:generate
-
-# Ejecuta las migraciones para crear las tablas en la base de datos:
-
-php artisan migrate
-
-# Ejecución del Servidor
-Para iniciar el servidor de desarrollo de Laravel, ejecuta el siguiente comando:
-
-php artisan serve
